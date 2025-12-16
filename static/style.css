@@ -1,0 +1,539 @@
+/* ==========================================
+   AGRICULTURAL PRICE FORECAST - CSS
+   Colors: Black, Gray, Light Green, Lime, Orange
+   ========================================== */
+
+:root {
+    --primary-black: #1a1a1a;
+    --secondary-gray: #2d2d2d;
+    --light-gray: #404040;
+    --text-gray: #a0a0a0;
+    --lime-green: #a8e063;
+    --light-green: #56ab2f;
+    --orange: #ff6b35;
+    --white: #ffffff;
+    --error-red: #ff4444;
+    --success-green: #00c851;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-gray) 100%);
+    color: var(--white);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, var(--light-green) 0%, var(--lime-green) 100%);
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 40px rgba(168, 224, 99, 0.3);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.logo-icon {
+    font-size: 48px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-black);
+    margin: 0;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: var(--secondary-gray);
+    font-weight: 500;
+}
+
+/* ==========================================
+   MAIN CONTENT
+   ========================================== */
+
+.main-content {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+    background: var(--secondary-gray);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: var(--lime-green);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ==========================================
+   CROP SELECTOR
+   ========================================== */
+
+.crop-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.crop-card {
+    background: var(--light-gray);
+    border: 3px solid transparent;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.crop-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--lime-green);
+    box-shadow: 0 8px 20px rgba(168, 224, 99, 0.3);
+}
+
+.crop-card.active {
+    background: linear-gradient(135deg, var(--light-green), var(--lime-green));
+    border-color: var(--lime-green);
+    transform: scale(1.05);
+}
+
+.crop-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.crop-card span {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--white);
+}
+
+/* ==========================================
+   FORM CONTROLS
+   ========================================== */
+
+.form-grid {
+    display: grid;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--lime-green);
+    font-size: 1rem;
+}
+
+.form-control {
+    background: var(--light-gray);
+    border: 2px solid var(--light-gray);
+    border-radius: 10px;
+    padding: 15px;
+    color: var(--white);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--lime-green);
+    box-shadow: 0 0 0 3px rgba(168, 224, 99, 0.2);
+}
+
+.form-control option {
+    background: var(--secondary-gray);
+    color: var(--white);
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    flex: 1;
+    min-width: 200px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--light-green), var(--lime-green));
+    color: var(--primary-black);
+    box-shadow: 0 5px 20px rgba(168, 224, 99, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(168, 224, 99, 0.6);
+}
+
+.btn-secondary {
+    background: var(--light-gray);
+    color: var(--white);
+    border: 2px solid var(--text-gray);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-black);
+    border-color: var(--lime-green);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-icon {
+    font-size: 1.3rem;
+}
+
+/* ==========================================
+   RESULTS SECTION
+   ========================================== */
+
+.summary-card {
+    background: linear-gradient(135deg, var(--light-gray), var(--secondary-gray));
+    border: 2px solid var(--lime-green);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.summary-crop {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.crop-emoji {
+    font-size: 3.5rem;
+}
+
+.summary-crop h3 {
+    font-size: 1.8rem;
+    color: var(--lime-green);
+    margin: 0;
+}
+
+.summary-crop p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+.trend-badge {
+    background: linear-gradient(135deg, var(--orange), #ff8c42);
+    padding: 12px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.trend-badge.positive {
+    background: linear-gradient(135deg, var(--light-green), var(--lime-green));
+    color: var(--primary-black);
+}
+
+.trend-badge.negative {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.trend-badge.stable {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+}
+
+/* ==========================================
+   PRICE DISPLAY
+   ========================================== */
+
+.price-display {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.price-item {
+    text-align: center;
+}
+
+.price-item label {
+    display: block;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--lime-green);
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.currency {
+    font-size: 1.5rem;
+    color: var(--text-gray);
+}
+
+.unit {
+    font-size: 1rem;
+    color: var(--text-gray);
+    font-weight: 400;
+}
+
+.price-arrow {
+    font-size: 2rem;
+    color: var(--orange);
+}
+
+/* ==========================================
+   CHANGE INDICATOR
+   ========================================== */
+
+.change-indicator {
+    text-align: center;
+    padding: 20px;
+    background: var(--primary-black);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.change-indicator span:first-child {
+    color: var(--lime-green);
+}
+
+.change-indicator span:last-child {
+    color: var(--orange);
+}
+
+/* ==========================================
+   CHART
+   ========================================== */
+
+.chart-card {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.chart-card h3 {
+    color: var(--lime-green);
+    margin-bottom: 20px;
+}
+
+#chartContainer {
+    position: relative;
+    height: 300px;
+}
+
+/* ==========================================
+   TABLE
+   ========================================== */
+
+.table-card {
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.table-card h3 {
+    color: var(--lime-green);
+    margin-bottom: 20px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead tr {
+    background: var(--primary-black);
+    color: var(--lime-green);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--secondary-gray);
+}
+
+tbody tr:hover {
+    background: var(--secondary-gray);
+}
+
+/* ==========================================
+   LOADING & ERRORS
+   ========================================== */
+
+.loading {
+    text-align: center;
+    padding: 60px;
+    background: var(--secondary-gray);
+    border-radius: 20px;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    border: 4px solid var(--light-gray);
+    border-top: 4px solid var(--lime-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.error-message {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.error-icon {
+    font-size: 2rem;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .crop-selector {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .price-display {
+        flex-direction: column;
+    }
+
+    .price-arrow {
+        transform: rotate(90deg);
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

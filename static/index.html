@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri Price Forecast - Smart Agricultural Price Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🌾</span>
+                <h1>Agri Price Forecast</h1>
+            </div>
+            <p class="tagline">AI-Powered Agricultural Market Intelligence</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="input-section">
+                <h2>Get Price Predictions</h2>
+                
+                <div class="form-grid">
+                    <!-- Crop Selection -->
+                    <div class="form-group">
+                        <label for="crop">Select Crop</label>
+                        <div class="crop-selector" id="cropSelector">
+                            <div class="crop-card" data-crop="Potato">
+                                <div class="crop-icon">🥔</div>
+                                <span>Potato</span>
+                            </div>
+                            <div class="crop-card" data-crop="Onion">
+                                <div class="crop-icon">🧅</div>
+                                <span>Onion</span>
+                            </div>
+                            <div class="crop-card" data-crop="Wheat">
+                                <div class="crop-icon">🌾</div>
+                                <span>Wheat</span>
+                            </div>
+                            <div class="crop-card" data-crop="Tomato">
+                                <div class="crop-icon">🍅</div>
+                                <span>Tomato</span>
+                            </div>
+                            <div class="crop-card" data-crop="Rice">
+                                <div class="crop-icon">🌾</div>
+                                <span>Rice</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- State Selection -->
+                    <div class="form-group">
+                        <label for="state">Select State</label>
+                        <select id="state" class="form-control">
+                            <option value="">Loading states...</option>
+                        </select>
+                    </div>
+
+                    <!-- Days Selection -->
+                    <div class="form-group">
+                        <label for="days">Forecast Period</label>
+                        <select id="days" class="form-control">
+                            <option value="1">Next Day</option>
+                            <option value="7" selected>7 Days</option>
+                            <option value="14">14 Days</option>
+                            <option value="30">30 Days</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-group">
+                    <button id="predictBtn" class="btn btn-primary">
+                        Get Forecast
+                    </button>
+                    <button id="resetBtn" class="btn btn-secondary">
+                        <span class="btn-icon">🔄</span>
+                        Reset
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h2>Forecast Results</h2>
+                
+                <!-- Summary Card -->
+                <div class="summary-card">
+                    <div class="summary-header">
+                        <div class="summary-crop">
+                            <span class="crop-emoji" id="resultCropIcon">🥔</span>
+                            <div>
+                                <h3 id="resultCrop">Potato</h3>
+                                <p id="resultState">Punjab</p>
+                            </div>
+                        </div>
+                        <div class="trend-badge" id="trendBadge">
+                            <span id="trendIcon">📈</span>
+                            <span id="trendText">Upward</span>
+                        </div>
+                    </div>
+
+                    <div class="price-display">
+                        <div class="price-item">
+                            <label>Current Price</label>
+                            <div class="price-value">
+                                <span class="currency">₹</span>
+                                <span id="startPrice">0</span>
+                                <span class="unit">/ quintal</span>
+                            </div>
+                        </div>
+                        <div class="price-arrow">→</div>
+                        <div class="price-item">
+                            <label>Predicted Price</label>
+                            <div class="price-value">
+                                <span class="currency">₹</span>
+                                <span id="endPrice">0</span>
+                                <span class="unit">/ quintal</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="change-indicator">
+                        <span id="changePercent">+0.00%</span>
+                        <span id="changeAmount">₹0.00</span>
+                    </div>
+                </div>
+
+                <!-- Chart Section -->
+                <div class="chart-card">
+                    <h3>Price Forecast Chart</h3>
+                    <div id="chartContainer">
+                        <canvas id="priceChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Daily Forecast Table -->
+                <div class="table-card">
+                    <h3>Daily Breakdown</h3>
+                    <div class="table-responsive">
+                        <table id="forecastTable">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Predicted Price</th>
+                                    <th>Change</th>
+                                </tr>
+                            </thead>
+                            <tbody id="forecastTableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading Spinner -->
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing market data...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-message" id="errorMessage" style="display: none;">
+                <span class="error-icon">⚠️</span>
+                <p id="errorText"></p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 Agri Price Forecast | Powered by Machine Learning & FastAPI</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
