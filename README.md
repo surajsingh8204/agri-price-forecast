@@ -7,6 +7,12 @@ AI-Powered Agricultural Market Intelligence Platform for predicting crop prices 
 
 ---
 
+## 🚀 Live Demo
+
+**Access the live application**: [https://agri-price-forecast.onrender.com](https://agri-price-forecast.onrender.com)
+
+---
+
 ## 🎯 Features
 
 - 🔮 **Next-Day Price Prediction** - Get accurate price predictions for the next day
@@ -15,10 +21,6 @@ AI-Powered Agricultural Market Intelligence Platform for predicting crop prices 
 - 🌾 **Multiple Crops** - Support for Potato, Onion, Wheat, Tomato, and Rice
 - 🗺️ **State-wise Data** - Predictions for 20+ Indian states
 - 🎨 **Modern UI** - Beautiful dark-themed responsive interface
-
-## 🚀 Live Demo
-
-Access the application at: `https://your-app.onrender.com` (after deployment)
 
 ## 📸 Screenshots
 
@@ -124,7 +126,7 @@ python app.py
 
 ### Base URL
 - Local: `http://localhost:8000`
-- Production: `https://your-app.onrender.com`
+- Production: `https://agri-price-forecast.onrender.com`
 
 ### Endpoints
 
@@ -214,51 +216,6 @@ GET /api/forecast?crop=Potato&state=Punjab&days=7
   ]
 }
 ```
-
----
-
-## 🚢 Deploying to Render
-
-### Prerequisites
-- GitHub account
-- Render account (free tier available)
-- Code pushed to GitHub repository
-
-### Deployment Steps
-
-1. **Prepare Your Repository**
-   - Ensure all files are committed to GitHub
-   - Verify `render.yaml`, `Procfile`, and `requirements.txt` are present
-   - Confirm `models/` folder and `data/Agriculture_price_dataset.csv` are included
-
-2. **Deploy on Render**
-   - Go to [Render Dashboard](https://dashboard.render.com/)
-   - Click **"New +"** → **"Blueprint"**
-   - Connect your GitHub repository
-   - Render will automatically detect `render.yaml` and configure the service
-   - Click **"Apply"** to start deployment
-
-3. **Alternative: Manual Deployment**
-   - Click **"New +"** → **"Web Service"**
-   - Connect your GitHub repository
-   - Configure settings:
-     - **Name**: `agri-price-forecast` (or your choice)
-     - **Runtime**: Python 3
-     - **Build Command**: `pip install -r requirements.txt`
-     - **Start Command**: `uvicorn app:app --host 0.0.0.0 --port $PORT`
-     - **Plan**: Free
-   - Click **"Create Web Service"**
-
-4. **Verify Deployment**
-   - Wait for the build to complete (5-10 minutes)
-   - Access your app at: `https://your-app-name.onrender.com`
-   - Check API status: `https://your-app-name.onrender.com/api`
-
-### Important Notes
-- **Free Tier**: Service spins down after 15 minutes of inactivity
-- **Cold Starts**: First request after spin-down takes ~30 seconds
-- **Data Files**: Ensure CSV and model files are in the repo (not .gitignored)
-- **Build Time**: Initial deployment may take 5-10 minutes
 
 ---
 
